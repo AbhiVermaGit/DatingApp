@@ -53,7 +53,7 @@ namespace API.Controllers
             
             if(await _messageRepository.SaveAllASync()) return Ok(_mapper.Map<MessageDto>(message));
 
-            return BadRequest("Fsiled to send message");
+            return BadRequest("Failed to send message");
             
         }
 

@@ -22,4 +22,4 @@ export function getPaginatedResult<T>(url: string , params: HttpParams, http: Ht
     params = params.append('pageSize', pageSize.toString());
 
     return params;
-  }
+  } 

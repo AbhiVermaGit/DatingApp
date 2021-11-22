@@ -53,7 +53,6 @@ export class MembersService {
     if(response){
       return of(response);
     }
-
     let params = getPaginationHeaders(userParams.pageNumber, userParams.pageSize);
 
     params = params.append('minAge', userParams.minAge.toString());
@@ -63,9 +62,9 @@ export class MembersService {
 
 
     return getPaginatedResult<Member[]>(this.baseUrl + 'users',params, this.http)
-    .pipe(map(response => {
-      this.memberCache.set(Object.values(userParams).join('-'),response);
-      return response;
+        .pipe(map(response => {
+        this.memberCache.set(Object.values(userParams).join('-'),response);
+        return response;
     }))
   }
 
@@ -107,8 +106,8 @@ export class MembersService {
   }
 
   getLikes(predicate: string, pageNumber: number, pageSize: number){
-      let params = getPaginationHeaders(pageNumber, pageSize);
-      params = params.append('predicate', predicate);
+    let params = getPaginationHeaders(pageNumber, pageSize);
+    params = params.append('predicate', predicate);
 
       return getPaginatedResult<Partial<Member[]>>(this.baseUrl + 'likes', params, this.http);
   }
