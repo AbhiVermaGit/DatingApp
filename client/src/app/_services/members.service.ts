@@ -60,7 +60,6 @@ export class MembersService {
     params = params.append('gender', userParams.gender);
     params = params.append('orderBy', userParams.orderBy);
 
-
     return getPaginatedResult<Member[]>(this.baseUrl + 'users', params, this.http)
         .pipe(map(response => {
         this.memberCache.set(Object.values(userParams).join('-'),response);
